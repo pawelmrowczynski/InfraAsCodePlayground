@@ -1,3 +1,12 @@
+Quick start:
+
+1. Clone the repo
+2. Run .\.env\Scripts\Activate.ps1 to activate python virtual environment
+3. Run pip install -r requirements.txt to install all dependencies
+4. Run cdk synth to test if cdk is set up properly (it should create a cloud-formation yaml stack)
+5. Run pytest to run unit test
+6. Run 'code .' to run Visual Studio Code with a python environment context (code-insiders . if you are using Insiders version of VSCode)
+7. Done. Autocomplete, navigation and all other goodies should work.
 
 # Welcome to your CDK Python project!
 
