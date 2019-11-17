@@ -31,3 +31,4 @@ cdk.out/
 
 #Python env files
 *.egg-info
+__pycache__/
