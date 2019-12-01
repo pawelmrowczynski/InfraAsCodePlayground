@@ -16,3 +16,8 @@ def handler(event, context):
     )
 
     print(f"Succesfully wrote message to sqs. MessageId: {response['MessageId']}")
+
+    return {
+        "statusCode": 200,
+        "body": json.dumps(f"Succesfully generated and saved to sqs: {random_number}")
+    }
