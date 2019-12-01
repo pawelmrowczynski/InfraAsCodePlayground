@@ -21,7 +21,7 @@ class ProjectOneStack(core.Stack):
             self,
             'publisher',
             runtime=_lambda.Runtime.PYTHON_3_7,
-            code=_lambda.Code.asset('publisher'),
+            code=_lambda.Code.asset('projectOne/publisher'),
             handler='publisher.handler',
             environment={"QUEUE_URL":queue.queue_url}
         )
@@ -39,7 +39,7 @@ class ProjectOneStack(core.Stack):
             self,
             'subscriber',
             runtime=_lambda.Runtime.PYTHON_3_7,
-            code=_lambda.Code.asset('subscriber'),
+            code=_lambda.Code.asset('projectOne/subscriber'),
             handler='subscriber.handler',
             environment={
                 "QUEUE_URL":queue.queue_url,
