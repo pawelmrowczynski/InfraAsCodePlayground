@@ -1,2 +1,4 @@
 -e .
 pytest
+aws_cdk.aws_dynamodb
+aws_cdk.aws_apigateway

@@ -3,9 +3,11 @@
 from aws_cdk import core
 
 from hello.hello_stack import MyStack
+from projectOne.main import ProjectOneStack
 
 
 app = core.App()
 MyStack(app, "hello-cdk-1", env={'region': 'eu-west-1'})
+ProjectOneStack(app, "project-one-stack", env={'region':'eu-west-1'})
 
 app.synth()

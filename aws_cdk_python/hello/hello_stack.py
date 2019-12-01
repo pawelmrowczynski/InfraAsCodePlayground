@@ -16,6 +16,5 @@ class MyStack(core.Stack):
             self, 'HelloHandler',
             runtime=_lambda.Runtime.PYTHON_3_7,
             code=_lambda.Code.asset('lambda'),
-            handler='hello.handler',
+            handler='hello.handler'
         )
-        

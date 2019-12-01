@@ -1,6 +1,7 @@
 Quick start:
 
 1. Clone the repo
+1. run virtualenv -p python3 .env
 2. Run .\.env\Scripts\Activate.ps1 to activate python virtual environment
 3. Run pip install -r requirements.txt to install all dependencies
 4. Run cdk synth to test if cdk is set up properly (it should create a cloud-formation yaml stack)
