@@ -1,0 +1,3 @@
+name: pulumi_azure_python
+runtime: python
+description: A minimal Azure Python Pulumi program
