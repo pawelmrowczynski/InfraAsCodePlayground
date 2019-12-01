@@ -1,12 +1,21 @@
 import json
-
+import os
+import boto3
 
 def handler(event, context):
-    print('request: {}'.format(json.dumps(event)))
-    return {
-        'statusCode': 200,
-        'headers': {
-            'Content-Type': 'text/plain'
-        },
-        'body': 'Hello, CDK! You have hit a lambda fn')
-    }
+    for record in event['Records']:
+
+        payload=record["body"]
+
+        dynamodb = boto3.resource('dynamodb', region_name='eu-west-1')
+
+        table = dynamodb.Table(os.environ['TABLE_NAME'])
+
+        response = table.put_item(
+            Item={
+                    "id": int(payload)
+                }
+        )
+
+        print("PutItem succeeded:")
+        print(json.dumps(response))

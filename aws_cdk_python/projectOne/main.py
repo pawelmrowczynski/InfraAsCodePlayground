@@ -7,6 +7,7 @@ import aws_cdk.aws_lambda as _lambda
 import aws_cdk.aws_sqs as _sqs
 import aws_cdk.aws_dynamodb as _dynamodb
 import aws_cdk.aws_apigateway as _apigateway
+from aws_cdk.aws_lambda_event_sources import SqsEventSource
 
 class ProjectOneStack(core.Stack):
 
@@ -43,8 +44,9 @@ class ProjectOneStack(core.Stack):
             environment={
                 "QUEUE_URL":queue.queue_url,
                 "TABLE_NAME":table.table_name
-                }
+                },
         )
+        subscriberFunction.add_event_source(SqsEventSource(queue, batch_size=10))
 
         queue.grant_send_messages(publisherFunction)
         table.grant(subscriberFunction, "dynamodb:PutItem")

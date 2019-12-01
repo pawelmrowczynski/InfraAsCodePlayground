@@ -2,3 +2,4 @@
 pytest
 aws_cdk.aws_dynamodb
 aws_cdk.aws_apigateway
+aws-cdk.aws-lambda-event-sources
