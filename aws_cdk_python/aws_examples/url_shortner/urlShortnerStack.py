@@ -1,5 +1,6 @@
 from aws_cdk import core, aws_dynamodb, aws_lambda, aws_apigateway
 from .myCoreStack import MyCoreStack
+from cdk_watchful import Watchful
 
 class UrlShortnerStack(MyCoreStack):
 
@@ -21,6 +22,12 @@ class UrlShortnerStack(MyCoreStack):
         function.add_environment("TABLE_NAME", table.table_name) ## late binding at provisioning time
 
         api = aws_apigateway.LambdaRestApi(self, "api", handler = function)
+
+        wf = Watchful(self, "monitoring", alarm_email="pmrowka3@gmail.com")
+        wf.watch_scope(self)
+
+
+
 
 from .trafic_sim import TraficSim
 
