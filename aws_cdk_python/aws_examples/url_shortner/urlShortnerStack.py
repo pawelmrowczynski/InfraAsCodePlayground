@@ -28,3 +28,5 @@ class TrafficStack(MyCoreStack):
 
     def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs) 
+
+        TraficSim(self, "trafficSim", self.core_vpc, url = "https://6c1jw8vd2l.execute-api.eu-west-1.amazonaws.com/prod/30fd2134", tps = 5)

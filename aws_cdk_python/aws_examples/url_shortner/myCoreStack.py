@@ -5,7 +5,7 @@ from aws_cdk import aws_apigateway, aws_route53, aws_route53_targets, aws_certif
 # we need default values here since aws-cdk-examples build synthesizes the app
 ACCOUNT=os.environ.get('CORE_ACCOUNT', '722785552123')
 REGION=os.environ.get('CORE_REGION', 'eu-west-1')
-VPC_ID = os.environ.get('CORE_VPC_ID', 'vpc-011c1dff6f9c0210f')
+VPC_ID = os.environ.get('CORE_VPC_ID', 'vpc-048e8e5699b1af996')
 
 AWS_ENV = Environment(account=ACCOUNT, region=REGION)
 
@@ -28,4 +28,4 @@ class MyCoreStack(Stack):
         return self._vpc
 
 
-__all__ = ["coreStack"]
+__all__ = ["MyCoreStack"]

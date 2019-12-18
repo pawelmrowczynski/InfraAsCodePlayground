@@ -18,3 +18,7 @@ class MyStack(core.Stack):
             code=_lambda.Code.asset('hello/lambda'),
             handler='hello.handler'
         )
+
+        vpc = ec2.Vpc(self, "TheVPC",
+           cidr="14.0.0.0/16"
+       )

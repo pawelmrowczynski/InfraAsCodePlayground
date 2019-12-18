@@ -6,6 +6,7 @@ from hello.hello_stack import MyStack
 from projectOne.main import ProjectOneStack
 from aws_examples.api_cors_lambda.stack import ApiCorsLambdaStack
 from aws_examples.url_shortner.urlShortnerStack import UrlShortnerStack
+from aws_examples.url_shortner.urlShortnerStack import TrafficStack
 
 
 app = core.App()
@@ -20,6 +21,6 @@ ApiCorsLambdaStack(app, "first-example-stack", env={'region':'eu-west-1'})
 
 #url shortner stack
 UrlShortnerStack(app, "url-shortner-stack")
-
+TrafficStack(app, "test-trafick")
 
 app.synth()
