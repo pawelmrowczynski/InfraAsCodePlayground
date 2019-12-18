@@ -25,6 +25,17 @@ setuptools.setup(
         "aws-cdk.aws_sns",
         "aws-cdk.aws_sns_subscriptions",
         "aws-cdk.aws_s3",
+        "aws-cdk.aws-dynamodb",
+        "aws-cdk.aws-events",
+        "aws-cdk.aws-events-targets",
+        "aws-cdk.aws-lambda",
+        "aws-cdk.aws-lambda-event-sources",
+        "aws-cdk.aws-ecs-patterns",
+        "aws-cdk.aws-certificatemanager",
+        "aws-cdk.aws-apigateway",
+        "aws-cdk.aws-cloudwatch",
+        "cdk-watchful",
+        "boto3"
     ],
 
     python_requires=">=3.6",
