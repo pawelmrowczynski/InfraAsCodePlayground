@@ -1,7 +1,7 @@
 from aws_cdk import core, aws_dynamodb, aws_lambda, aws_apigateway
+from .myCoreStack import MyCoreStack
 
-
-class UrlShortnerStack(core.Stack):
+class UrlShortnerStack(MyCoreStack):
 
     def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
@@ -21,3 +21,10 @@ class UrlShortnerStack(core.Stack):
         function.add_environment("TABLE_NAME", table.table_name) ## late binding at provisioning time
 
         api = aws_apigateway.LambdaRestApi(self, "api", handler = function)
+
+from .trafic_sim import TraficSim
+
+class TrafficStack(MyCoreStack):
+
+    def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
+        super().__init__(scope, id, **kwargs) 

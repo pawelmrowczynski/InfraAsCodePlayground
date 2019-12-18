@@ -19,7 +19,7 @@ ProjectOneStack(app, "project-one-stack", env={'region':'eu-west-1'})
 ApiCorsLambdaStack(app, "first-example-stack", env={'region':'eu-west-1'})
 
 #url shortner stack
-UrlShortnerStack(app, "url-shortner-stack", env={'region':'eu-west-1'})
+UrlShortnerStack(app, "url-shortner-stack")
 
 
 app.synth()
