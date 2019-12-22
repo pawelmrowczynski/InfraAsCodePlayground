@@ -5,6 +5,7 @@ from aws_cdk import (
 
 import aws_cdk.aws_lambda as _lambda
 
+from cdk_dynamo_table_viewer import TableViewer
 from hitcounter import HitCounter
 
 
@@ -26,3 +27,5 @@ class MyStack(core.Stack):
             self, 'Endpoint',
             handler=counter.handler,
         )
+
+        TableViewer(self, "ViewHitCounts", title="Hello hits", table=counter._table, sort_by="hits")

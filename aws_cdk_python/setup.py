@@ -35,7 +35,8 @@ setuptools.setup(
         "aws-cdk.aws-apigateway",
         "aws-cdk.aws-cloudwatch",
         "cdk-watchful",
-        "boto3"
+        "boto3",
+        "cdk-dynamo-table-viewer"
     ],
 
     python_requires=">=3.6",
