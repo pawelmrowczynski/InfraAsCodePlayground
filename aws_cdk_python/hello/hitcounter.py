@@ -15,16 +15,20 @@ class HitCounter(core.Construct):
 
         table = ddb.Table(
             self, 'Hits',
-            partition_key={'name': 'path', 'type': ddb.AttributeType.STRING}
+            partition_key={'name': 'path', 'type': ddb.AttributeType.STRING},
+            removal_policy = core.RemovalPolicy.DESTROY
         )
 
         self._handler = _lambda.Function(
             self, 'HitCountHandler',
             runtime=_lambda.Runtime.PYTHON_3_7,
-            handler='hitcount.handler',
+            handler='hitcounter.handler',
             code=_lambda.Code.asset('hello/lambda'),
             environment={
                 'DOWNSTREAM_FUNCTION_NAME': downstream.function_name,
                 'HITS_TABLE_NAME': table.table_name,
             }
         )
+
+        table.grant_read_write_data(self.handler)
+        downstream.grant_invoke(self.handler)

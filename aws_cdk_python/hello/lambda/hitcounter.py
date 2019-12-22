@@ -1,6 +1,5 @@
 import json
 import os
-
 import boto3
 
 ddb = boto3.resource('dynamodb')

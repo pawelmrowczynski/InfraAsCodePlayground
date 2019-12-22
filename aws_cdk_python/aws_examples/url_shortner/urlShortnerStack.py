@@ -8,15 +8,18 @@ class UrlShortnerStack(MyCoreStack):
         super().__init__(scope, id, **kwargs)
 
         table = aws_dynamodb.Table(
-            self, 
+            self,
             "mapping-table",
-            partition_key = aws_dynamodb.Attribute(name="id", type = aws_dynamodb.AttributeType.STRING))
-        
+            partition_key = aws_dynamodb.Attribute(name="id", type = aws_dynamodb.AttributeType.STRING),
+            removal_policy = core.RemovalPolicy.DESTROY
+            )
+
         function = aws_lambda.Function(
-            self, "backend",
+            self,
+            "backend",
             runtime=aws_lambda.Runtime.PYTHON_3_7,
-            handler = "handler.main",
-            code = aws_lambda.Code.asset("aws_examples/url_shortner/lambda"))
+            handler="handler.main",
+            code=aws_lambda.Code.asset("aws_examples/url_shortner/lambda"))
         table.grant_read_write_data(function)
 
         function.add_environment("TABLE_NAME", table.table_name) ## late binding at provisioning time
