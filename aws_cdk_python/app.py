@@ -16,7 +16,7 @@ MyStack(app, "hello-cdk-1", env={'region': 'eu-west-1'})
 # my first project, see readme.md for more details
 ProjectOneStack(app, "project-one-stack", env={'region':'eu-west-1'})
 
-# first example from aws-cdk-examples: https://github.com/aws-samples/aws-cdk-examples/tree/master/python/api-cors-lambda/
+#first example from aws-cdk-examples: https://github.com/aws-samples/aws-cdk-examples/tree/master/python/api-cors-lambda/
 ApiCorsLambdaStack(app, "first-example-stack", env={'region':'eu-west-1'})
 
 #url shortner stack

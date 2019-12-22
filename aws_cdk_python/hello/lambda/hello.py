@@ -1,6 +1,5 @@
 import json
 
-
 def handler(event, context):
     print('request: {}'.format(json.dumps(event)))
     return {
@@ -8,5 +7,5 @@ def handler(event, context):
         'headers': {
             'Content-Type': 'text/plain'
         },
-        'body': 'Hello, CDK! You have hit a lambda fn')
+        'body': 'Hello, CDK! You have hit a lambda fn'
     }

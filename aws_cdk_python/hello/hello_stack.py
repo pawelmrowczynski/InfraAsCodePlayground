@@ -1,11 +1,12 @@
 from aws_cdk import (
-    core
+    core,
+    aws_apigateway as apigw
 )
 
-import aws_cdk.aws_ec2 as ec2
 import aws_cdk.aws_lambda as _lambda
 
-from .hello_construct import HelloConstruct
+from hitcounter import HitCounter
+
 
 class MyStack(core.Stack):
 
@@ -19,6 +20,9 @@ class MyStack(core.Stack):
             handler='hello.handler'
         )
 
-        vpc = ec2.Vpc(self, "TheVPC",
-           cidr="14.0.0.0/16"
-       )
+        counter = HitCounter(self, "hello-hit-counter", my_lambda)
+
+        apigw.LambdaRestApi(
+            self, 'Endpoint',
+            handler=counter.handler,
+        )
