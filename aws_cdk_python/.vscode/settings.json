@@ -4,6 +4,6 @@
     "python.linting.enabled": true,
     "python.linting.pylintArgs": [
         "--max-line-length=128",
-        "--disable=no-value-for-parameter,missing-module-docstring,unused-argument,missing-function-docstring,missing-class-docstring"
+        "--disable=no-value-for-parameter,missing-module-docstring,unused-argument,missing-function-docstring,missing-class-docstring,redefined-builtin"
     ]
 }
