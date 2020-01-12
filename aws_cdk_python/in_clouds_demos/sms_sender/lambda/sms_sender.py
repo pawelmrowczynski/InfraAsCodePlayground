@@ -36,6 +36,8 @@ def handler(event, context):
             'senderId': sender_id
         })
 
+        #example get request = ?phone=48512261197&message=hello%20from%20zordon&senderId=Zordon
+
     return {
         'statusCode': 200,
         'body': json.dumps(f'Message with id {message_hash} sent')
